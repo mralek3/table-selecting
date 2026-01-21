@@ -1,202 +1,183 @@
-.ql-container {
-  font-size: var(--ant-font-size) !important;
-  font-family: var(--ant-font-family) !important;
-  color: var(--ant-color-text) !important;
-
-  &.ql-snow {
-    background: var(--ant-color-bg-container) !important;
-    border: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border) !important;
-    border-radius: var(--ant-border-radius) !important;
-  }
-}
-
-.ql-editor {
-  background: var(--ant-color-bg-container) !important;
-  color: var(--ant-color-text) !important;
-  font-family: var(--ant-font-family) !important;
-  font-size: var(--ant-font-size) !important;
-  line-height: var(--ant-line-height) !important;
-
-  &.ql-blank::before {
-    color: var(--ant-color-text-placeholder) !important;
-    font-style: normal !important;
-  }
-
-  td {
-    border: 1px solid var(--ant-color-border) !important;
-  }
-
-  li[data-list='checked'] > .ql-ui,
-  li[data-list='unchecked'] > .ql-ui {
-    color: var(--ant-color-text-secondary) !important;
-  }
-
-  h1 {
-    font-size: var(--ant-font-size-heading-1) !important;
-    line-height: var(--ant-line-height-heading-1) !important;
-  }
-
-  h2 {
-    font-size: var(--ant-font-size-heading-2) !important;
-    line-height: var(--ant-line-height-heading-2) !important;
-  }
-
-  h3 {
-    font-size: var(--ant-font-size-heading-3) !important;
-    line-height: var(--ant-line-height-heading-3) !important;
-  }
-
-  h4 {
-    font-size: var(--ant-font-size-heading-4) !important;
-    line-height: var(--ant-line-height-heading-4) !important;
-  }
-
-  h5 {
-    font-size: var(--ant-font-size-heading-5) !important;
-    line-height: var(--ant-line-height-heading-5) !important;
-  }
-
-  h6 {
-    font-size: var(--ant-font-size-sm) !important;
-  }
-
-  a {
-    color: var(--ant-color-link) !important;
-    text-decoration: var(--ant-link-decoration) !important;
-
-    &:hover {
-      color: var(--ant-color-link-hover) !important;
-    }
-  }
-
-  blockquote {
-    border-left: 4px solid var(--ant-color-border-secondary) !important;
-    background: var(--ant-color-fill-tertiary) !important;
-    color: var(--ant-color-text-secondary) !important;
-  }
-
-  code {
-    background: var(--ant-color-fill-secondary) !important;
-    color: var(--ant-color-text) !important;
-    border-radius: var(--ant-border-radius-sm) !important;
-    font-family: var(--ant-font-family-code) !important;
-  }
-
-  .ql-code-block-container {
-    background: var(--ant-color-bg-elevated) !important;
-    color: var(--ant-color-text) !important;
-    border-radius: var(--ant-border-radius) !important;
-    box-shadow: var(--ant-box-shadow-secondary) !important;
-    font-family: var(--ant-font-family-code) !important;
-  }
-
-  .ql-bg-blue { background: var(--ant-blue-6) !important; }
-  .ql-bg-red { background: var(--ant-red-6) !important; }
-  .ql-bg-green { background: var(--ant-green-6) !important; }
-  .ql-bg-yellow { background: var(--ant-yellow-6) !important; }
-  .ql-bg-orange { background: var(--ant-orange-6) !important; }
-  .ql-bg-purple { background: var(--ant-purple-6) !important; }
-  .ql-bg-black { background: var(--ant-color-bg-base) !important; }
-
-  .ql-color-blue { color: var(--ant-blue-6) !important; }
-  .ql-color-red { color: var(--ant-red-6) !important; }
-  .ql-color-green { color: var(--ant-green-6) !important; }
-  .ql-color-yellow { color: var(--ant-yellow-6) !important; }
-  .ql-color-orange { color: var(--ant-orange-6) !important; }
-  .ql-color-purple { color: var(--ant-purple-6) !important; }
-  .ql-color-white { color: var(--ant-color-white) !important; }
-
-  ::selection {
-    background: var(--ant-color-primary-bg) !important;
-    color: var(--ant-color-text-light-solid) !important;
-  }
-}
-
-.ql-toolbar.ql-snow {
-  background: var(--ant-color-bg-layout) !important;
-  border: 1px solid var(--ant-color-border) !important;
-  border-radius: var(--ant-border-radius) var(--ant-border-radius) 0 0 !important;
-  font-family: var(--ant-font-family) !important;
-
-  & + .ql-container.ql-snow {
-    border-top: 0 !important;
-  }
-
-  button {
-    color: var(--ant-color-text) !important;
-
-    &:hover,
-    &:focus,
-    &.ql-active {
-      color: var(--ant-color-primary) !important;
-    }
-  }
-
-  .ql-fill,
-  .ql-stroke.ql-fill {
-    fill: var(--ant-color-text) !important;
-  }
-
-  .ql-stroke {
-    stroke: var(--ant-color-text) !important;
-  }
-
-  button:hover,
-  button:focus,
-  button.ql-active {
-    .ql-fill {
-      fill: var(--ant-color-primary) !important;
-    }
-
-    .ql-stroke {
-      stroke: var(--ant-color-primary) !important;
-    }
-  }
-}
+/* quill-overrides.css */
 
 .ql-snow {
-  .ql-picker {
-    color: var(--ant-color-text) !important;
+  font-family: var(--ant-font-family);
+  --ant-border-base: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border-secondary);
 
-    &-label {
-      border-radius: var(--ant-border-radius-sm) !important;
+  /* 1. Общие контейнеры */
+  &.ql-toolbar, 
+  &.ql-container {
+    background-color: var(--ant-color-bg-container);
+    border: var(--ant-border-base) !important;
+    color: var(--ant-color-text);
+  }
+
+  &.ql-toolbar {
+    border-radius: var(--ant-border-radius-lg) var(--ant-border-radius-lg) 0 0;
+    padding: var(--ant-padding-xs) !important;
+    border-bottom: none !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ant-size-xxs);
+
+    /* Группы форматов */
+    .ql-formats {
+      margin-right: var(--ant-margin-sm) !important;
+      display: flex;
+      align-items: center;
     }
 
-    &-options {
-      background: var(--ant-color-bg-elevated) !important;
-      border: 1px solid var(--ant-color-border) !important;
-      box-shadow: var(--ant-box-shadow-secondary) !important;
-      color: var(--ant-color-text) !important;
+    /* 2. Кнопки (стиль antd Button type="link" / "text") */
+    button {
+      background: transparent !important;
+      border: none !important;
+      border-radius: var(--ant-border-radius-sm);
+      transition: all var(--ant-motion-duration-mid) var(--ant-motion-ease-in-out);
+      color: var(--ant-color-text);
+      height: var(--ant-control-height-sm) !important;
+      width: auto !important;
+      min-width: var(--ant-control-height-sm);
+      padding: 0 var(--ant-padding-xxs) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .ql-stroke {
+        stroke: var(--ant-color-text);
+        stroke-width: var(--ant-line-width-bold);
+        transition: stroke var(--ant-motion-duration-mid);
+      }
+      .ql-fill {
+        fill: var(--ant-color-text);
+        transition: fill var(--ant-motion-duration-mid);
+      }
+
+      &:hover, 
+      &.ql-active {
+        background-color: var(--ant-color-bg-text-hover) !important;
+        color: var(--ant-color-primary-hover) !important;
+        
+        .ql-stroke { stroke: var(--ant-color-primary-hover) !important; }
+        .ql-fill { fill: var(--ant-color-primary-hover) !important; }
+      }
+    }
+  }
+
+  &.ql-container {
+    border-radius: 0 0 var(--ant-border-radius-lg) var(--ant-border-radius-lg);
+    font-size: var(--ant-font-size);
+
+    /* 3. Область редактора */
+    .ql-editor {
+      padding: var(--ant-padding-content-vertical) var(--ant-padding-content-horizontal);
+      line-height: var(--ant-line-height);
+      min-height: 120px;
+
+      &.ql-blank::before {
+        color: var(--ant-color-text-placeholder);
+        left: var(--ant-padding-content-horizontal);
+        font-style: normal;
+      }
+
+      /* Стили текста внутри */
+      blockquote {
+        border-left: var(--ant-line-width-focus) var(--ant-line-type) var(--ant-color-primary);
+        color: var(--ant-color-text-description);
+        background: var(--ant-color-fill-alter);
+        padding: var(--ant-padding-xs) var(--ant-padding-md);
+        margin: var(--ant-margin-sm) 0;
+      }
+
+      code, .ql-code-block-container {
+        background-color: var(--ant-color-fill-secondary);
+        border-radius: var(--ant-border-radius-sm);
+        font-family: var(--ant-font-family-code);
+        padding: var(--ant-padding-xxs) var(--ant-padding-xs);
+      }
+    }
+  }
+
+  /* 4. Выпадающие списки (Pickers) */
+  .ql-picker {
+    color: var(--ant-color-text);
+    font-size: var(--ant-font-size-sm);
+    height: var(--ant-control-height-sm);
+
+    .ql-picker-label {
+      border-radius: var(--ant-border-radius-sm);
+      padding: 0 var(--ant-padding-xs) !important;
+      transition: all var(--ant-motion-duration-mid);
+      border: var(--ant-line-width) var(--ant-line-type) transparent !important;
+
+      &:hover {
+        color: var(--ant-color-primary-hover) !important;
+        background-color: var(--ant-color-bg-text-hover);
+      }
     }
 
     &.ql-expanded .ql-picker-label {
+      border-color: var(--ant-color-primary) !important;
       color: var(--ant-color-primary) !important;
     }
 
-    &-item:hover,
-    &-item.ql-selected {
-      color: var(--ant-color-primary) !important;
-      background: var(--ant-color-fill-secondary) !important;
+    .ql-picker-options {
+      background-color: var(--ant-color-bg-elevated);
+      border: none !important;
+      box-shadow: var(--ant-box-shadow-secondary);
+      border-radius: var(--ant-border-radius-lg);
+      padding: var(--ant-padding-xxs) !important;
+      z-index: var(--ant-z-index-popup-base);
+    }
+
+    .ql-picker-item {
+      border-radius: var(--ant-border-radius-xs);
+      padding: var(--ant-padding-xxs) var(--ant-padding-sm) !important;
+      transition: background var(--ant-motion-duration-fast);
+
+      &:hover {
+        background-color: var(--ant-control-item-bg-hover);
+        color: var(--ant-color-primary-text-hover) !important;
+      }
+      &.ql-selected {
+        color: var(--ant-color-primary-text) !important;
+        background-color: var(--ant-control-item-bg-active);
+      }
     }
   }
-}
 
-.ql-snow {
+  /* 5. Тултипы (Links/Video/Formula) */
   .ql-tooltip {
-    background: var(--ant-color-bg-elevated) !important;
-    border: 1px solid var(--ant-color-border) !important;
-    box-shadow: var(--ant-box-shadow-secondary) !important;
-    color: var(--ant-color-text) !important;
-    border-radius: var(--ant-border-radius) !important;
+    background-color: var(--ant-color-bg-elevated);
+    border: none !important;
+    box-shadow: var(--ant-box-shadow);
+    border-radius: var(--ant-border-radius-lg);
+    padding: var(--ant-padding-sm) !important;
+    color: var(--ant-color-text);
+    z-index: var(--ant-z-index-popup-base);
 
-    input[type='text'] {
-      background: var(--ant-color-bg-container) !important;
-      border: 1px solid var(--ant-color-border) !important;
-      color: var(--ant-color-text) !important;
+    input[type=text] {
+      border: var(--ant-border-base) !important;
+      border-radius: var(--ant-border-radius-sm);
+      height: var(--ant-control-height-sm);
+      padding: 0 var(--ant-padding-xs);
+      background: var(--ant-color-bg-container);
+      color: var(--ant-color-text);
+      outline: none;
+      transition: all var(--ant-motion-duration-mid);
+
+      &:focus {
+        border-color: var(--ant-color-primary) !important;
+        box-shadow: 0 0 0 var(--ant-control-outline-width) var(--ant-control-outline);
+      }
     }
 
     a {
-      color: var(--ant-color-link) !important;
+      color: var(--ant-color-link);
+      &:hover { color: var(--ant-color-link-hover); }
+    }
+    
+    .ql-action::after {
+      border-right: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border-secondary);
     }
   }
 }
