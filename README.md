@@ -1,183 +1,174 @@
 /* quill-overrides.css */
 
-.ql-snow {
-  font-family: var(--ant-font-family);
-  --ant-border-base: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border-secondary);
-
-  /* 1. Общие контейнеры */
-  &.ql-toolbar, 
-  &.ql-container {
-    background-color: var(--ant-color-bg-container);
-    border: var(--ant-border-base) !important;
-    color: var(--ant-color-text);
+:root {
+  /* Базовые цвета и шрифты */
+  .ql-container.ql-snow, 
+  .ql-toolbar.ql-snow {
+    font-family: var(--ant-font-family) !important;
+    font-size: var(--ant-font-size) !important;
+    border-color: var(--ant-color-border-separator) !important;
   }
 
-  &.ql-toolbar {
-    border-radius: var(--ant-border-radius-lg) var(--ant-border-radius-lg) 0 0;
-    padding: var(--ant-padding-xs) !important;
-    border-bottom: none !important;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--ant-size-xxs);
+  /* Контейнер редактора */
+  .ql-container.ql-snow {
+    background-color: var(--ant-color-bg-container) !important;
+    color: var(--ant-color-text) !important;
+    border-bottom-left-radius: var(--ant-border-radius) !important;
+    border-bottom-right-radius: var(--ant-border-radius) !important;
+    transition: border-color var(--ant-motion-duration-slow) !important;
 
-    /* Группы форматов */
-    .ql-formats {
-      margin-right: var(--ant-margin-sm) !important;
-      display: flex;
-      align-items: center;
-    }
-
-    /* 2. Кнопки (стиль antd Button type="link" / "text") */
-    button {
-      background: transparent !important;
-      border: none !important;
-      border-radius: var(--ant-border-radius-sm);
-      transition: all var(--ant-motion-duration-mid) var(--ant-motion-ease-in-out);
-      color: var(--ant-color-text);
-      height: var(--ant-control-height-sm) !important;
-      width: auto !important;
-      min-width: var(--ant-control-height-sm);
-      padding: 0 var(--ant-padding-xxs) !important;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .ql-stroke {
-        stroke: var(--ant-color-text);
-        stroke-width: var(--ant-line-width-bold);
-        transition: stroke var(--ant-motion-duration-mid);
-      }
-      .ql-fill {
-        fill: var(--ant-color-text);
-        transition: fill var(--ant-motion-duration-mid);
-      }
-
-      &:hover, 
-      &.ql-active {
-        background-color: var(--ant-color-bg-text-hover) !important;
-        color: var(--ant-color-primary-hover) !important;
-        
-        .ql-stroke { stroke: var(--ant-color-primary-hover) !important; }
-        .ql-fill { fill: var(--ant-color-primary-hover) !important; }
-      }
-    }
-  }
-
-  &.ql-container {
-    border-radius: 0 0 var(--ant-border-radius-lg) var(--ant-border-radius-lg);
-    font-size: var(--ant-font-size);
-
-    /* 3. Область редактора */
     .ql-editor {
-      padding: var(--ant-padding-content-vertical) var(--ant-padding-content-horizontal);
-      line-height: var(--ant-line-height);
-      min-height: 120px;
+      line-height: var(--ant-line-height) !important;
+      padding: var(--ant-padding-content-vertical) var(--ant-padding-content-horizontal) !important;
 
       &.ql-blank::before {
-        color: var(--ant-color-text-placeholder);
-        left: var(--ant-padding-content-horizontal);
-        font-style: normal;
+        color: var(--ant-color-text-placeholder) !important;
+        font-style: normal !important;
       }
 
-      /* Стили текста внутри */
+      /* Стили заголовков внутри текста */
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--ant-color-text-heading) !important;
+        font-weight: var(--ant-font-weight-strong) !important;
+      }
+
+      /* Ссылки */
+      a {
+        color: var(--ant-color-link) !important;
+        text-decoration: none !important;
+        &:hover {
+          color: var(--ant-color-link-hover) !important;
+        }
+      }
+
+      /* Цитаты и код */
       blockquote {
-        border-left: var(--ant-line-width-focus) var(--ant-line-type) var(--ant-color-primary);
-        color: var(--ant-color-text-description);
-        background: var(--ant-color-fill-alter);
-        padding: var(--ant-padding-xs) var(--ant-padding-md);
-        margin: var(--ant-margin-sm) 0;
+        border-left: 4px solid var(--ant-color-border) !important;
+        padding-left: var(--ant-padding-md) !important;
+        color: var(--ant-color-text-description) !important;
       }
 
-      code, .ql-code-block-container {
-        background-color: var(--ant-color-fill-secondary);
-        border-radius: var(--ant-border-radius-sm);
-        font-family: var(--ant-font-family-code);
-        padding: var(--ant-padding-xxs) var(--ant-padding-xs);
+      pre.ql-code-block-container {
+        background-color: var(--ant-color-fill-tertiary) !important;
+        border-radius: var(--ant-border-radius-sm) !important;
+        padding: var(--ant-padding-xs) !important;
+        color: var(--ant-color-text-code) !important;
       }
     }
   }
 
-  /* 4. Выпадающие списки (Pickers) */
-  .ql-picker {
-    color: var(--ant-color-text);
-    font-size: var(--ant-font-size-sm);
-    height: var(--ant-control-height-sm);
+  /* Тулбар (Панель инструментов) */
+  .ql-toolbar.ql-snow {
+    background-color: var(--ant-color-bg-container) !important;
+    border-top-left-radius: var(--ant-border-radius) !important;
+    border-top-right-radius: var(--ant-border-radius) !important;
+    padding: 8px !important;
 
-    .ql-picker-label {
-      border-radius: var(--ant-border-radius-sm);
-      padding: 0 var(--ant-padding-xs) !important;
-      transition: all var(--ant-motion-duration-mid);
-      border: var(--ant-line-width) var(--ant-line-type) transparent !important;
+    /* Кнопки в стиле AntD Button (type="link") */
+    button, .ql-picker-label {
+      border-radius: var(--ant-border-radius-sm) !important;
+      color: var(--ant-color-text) !important;
+      transition: all var(--ant-motion-duration-mid) !important;
+
+      .ql-stroke {
+        stroke: var(--ant-color-text) !important;
+      }
+      .ql-fill {
+        fill: var(--ant-color-text) !important;
+      }
 
       &:hover {
         color: var(--ant-color-primary-hover) !important;
-        background-color: var(--ant-color-bg-text-hover);
+        background-color: var(--ant-control-item-bg-hover) !important;
+        
+        .ql-stroke {
+          stroke: var(--ant-color-primary-hover) !important;
+        }
+        .ql-fill {
+          fill: var(--ant-color-primary-hover) !important;
+        }
+      }
+
+      &.ql-active {
+        color: var(--ant-color-primary) !important;
+        .ql-stroke {
+          stroke: var(--ant-color-primary) !important;
+        }
+        .ql-fill {
+          fill: var(--ant-color-primary) !important;
+        }
       }
     }
 
-    &.ql-expanded .ql-picker-label {
-      border-color: var(--ant-color-primary) !important;
-      color: var(--ant-color-primary) !important;
-    }
+    /* Выпадающие списки (Select) */
+    .ql-picker {
+      color: var(--ant-color-text) !important;
+      
+      .ql-picker-options {
+        background-color: var(--ant-color-bg-elevated) !important;
+        border-radius: var(--ant-border-radius-lg) !important;
+        box-shadow: var(--ant-box-shadow-secondary) !important;
+        border: none !important;
+        padding: 4px !important;
 
-    .ql-picker-options {
-      background-color: var(--ant-color-bg-elevated);
-      border: none !important;
-      box-shadow: var(--ant-box-shadow-secondary);
-      border-radius: var(--ant-border-radius-lg);
-      padding: var(--ant-padding-xxs) !important;
-      z-index: var(--ant-z-index-popup-base);
-    }
-
-    .ql-picker-item {
-      border-radius: var(--ant-border-radius-xs);
-      padding: var(--ant-padding-xxs) var(--ant-padding-sm) !important;
-      transition: background var(--ant-motion-duration-fast);
-
-      &:hover {
-        background-color: var(--ant-control-item-bg-hover);
-        color: var(--ant-color-primary-text-hover) !important;
-      }
-      &.ql-selected {
-        color: var(--ant-color-primary-text) !important;
-        background-color: var(--ant-control-item-bg-active);
+        .ql-picker-item {
+          border-radius: var(--ant-border-radius-sm) !important;
+          padding: 4px 8px !important;
+          
+          &:hover {
+            background-color: var(--ant-control-item-bg-hover) !important;
+            color: var(--ant-color-primary) !important;
+          }
+          
+          &.ql-selected {
+            color: var(--ant-color-primary) !important;
+            background-color: var(--ant-control-item-bg-active) !important;
+          }
+        }
       }
     }
   }
 
-  /* 5. Тултипы (Links/Video/Formula) */
-  .ql-tooltip {
-    background-color: var(--ant-color-bg-elevated);
-    border: none !important;
-    box-shadow: var(--ant-box-shadow);
-    border-radius: var(--ant-border-radius-lg);
-    padding: var(--ant-padding-sm) !important;
-    color: var(--ant-color-text);
-    z-index: var(--ant-z-index-popup-base);
+  /* Тултипы и всплывающие окна (например, ввод ссылки) */
+  .ql-snow .ql-tooltip {
+    background-color: var(--ant-color-bg-elevated) !important;
+    border-radius: var(--ant-border-radius-lg) !important;
+    box-shadow: var(--ant-box-shadow-secondary) !important;
+    border: 1px solid var(--ant-color-border-secondary) !important;
+    color: var(--ant-color-text) !important;
+    padding: 8px 12px !important;
+    z-index: var(--ant-z-index-popup) !important;
 
     input[type=text] {
-      border: var(--ant-border-base) !important;
-      border-radius: var(--ant-border-radius-sm);
-      height: var(--ant-control-height-sm);
-      padding: 0 var(--ant-padding-xs);
-      background: var(--ant-color-bg-container);
-      color: var(--ant-color-text);
-      outline: none;
-      transition: all var(--ant-motion-duration-mid);
+      border: 1px solid var(--ant-color-border) !important;
+      border-radius: var(--ant-border-radius-sm) !important;
+      padding: 4px 8px !important;
+      font-size: var(--ant-font-size) !important;
+      outline: none !important;
 
       &:focus {
         border-color: var(--ant-color-primary) !important;
-        box-shadow: 0 0 0 var(--ant-control-outline-width) var(--ant-control-outline);
+        box-shadow: 0 0 0 2px var(--ant-color-primary-outline) !important;
       }
     }
 
-    a {
-      color: var(--ant-color-link);
-      &:hover { color: var(--ant-color-link-hover); }
+    a.ql-action::after {
+      content: 'OK' !important;
+      color: var(--ant-color-primary) !important;
+      font-weight: bold !important;
     }
-    
-    .ql-action::after {
-      border-right: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border-secondary);
+
+    a.ql-preview {
+      color: var(--ant-color-link) !important;
     }
+  }
+
+  /* Скроллбар (опционально под AntD) */
+  .ql-editor::-webkit-scrollbar {
+    width: 6px !important;
+  }
+  .ql-editor::-webkit-scrollbar-thumb {
+    background: var(--ant-color-fill-secondary) !important;
+    border-radius: var(--ant-border-radius-pill) !important;
   }
 }
