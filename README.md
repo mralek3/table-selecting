@@ -1,156 +1,132 @@
 /* quill-overrides.css */
 
-:root {
-  --ant-border-style: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border-secondary);
+/* 1. Основные контейнеры и шрифт */
+.ql-container {
+  font-family: var(--ant-font-family) !important;
+  font-size: var(--ant-font-size) !important;
+  background-color: var(--ant-color-bg-container);
+  color: var(--ant-color-text);
 }
 
-/* Группируем все стили темы Snow */
-.ql-snow {
-  font-family: var(--ant-font-family);
+.ql-editor {
+  line-height: var(--ant-line-height);
+}
 
-  /* 1. Контейнеры (Тулбар и Область ввода) */
-  &.ql-toolbar, 
-  &.ql-container {
-    border: var(--ant-border-style) !important;
-    background-color: var(--ant-color-bg-container);
-  }
+.ql-editor.ql-blank::before {
+  color: var(--ant-color-text-placeholder) !important;
+  font-style: normal;
+}
 
-  &.ql-toolbar {
-    border-radius: var(--ant-border-radius-lg) var(--ant-border-radius-lg) 0 0;
-    padding: var(--ant-padding-xs) !important;
-    border-bottom: none !important;
+/* 2. Панель инструментов (Toolbar) */
+.ql-toolbar.ql-snow {
+  border: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border) !important;
+  background-color: var(--ant-color-bg-container);
+  font-family: var(--ant-font-family) !important;
+}
 
-    /* 2. Кнопки в тулбаре (стиль antd Link Button) */
-    button {
-      background: transparent !important;
-      border: none !important;
-      border-radius: var(--ant-border-radius-sm);
-      transition: all var(--ant-motion-duration-mid);
-      color: var(--ant-color-text);
-      width: auto !important;
-      min-width: 24px;
-      height: 24px;
-      padding: 0 4px !important;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.ql-container.ql-snow {
+  border: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border) !important;
+}
 
-      .ql-stroke {
-        stroke: var(--ant-color-text);
-        transition: stroke var(--ant-motion-duration-mid);
-      }
-      .ql-fill {
-        fill: var(--ant-color-text);
-        transition: fill var(--ant-motion-duration-mid);
-      }
+/* 3. Кнопки и иконки */
+.ql-snow.ql-toolbar button svg,
+.ql-snow .ql-toolbar button svg {
+  stroke: var(--ant-color-text);
+}
 
-      &:hover, 
-      &.ql-active {
-        color: var(--ant-color-primary-hover) !important;
-        
-        .ql-stroke { stroke: var(--ant-color-primary-hover) !important; }
-        .ql-fill { fill: var(--ant-color-primary-hover) !important; }
-      }
-    }
-  }
+.ql-snow.ql-toolbar button .ql-fill,
+.ql-snow .ql-toolbar button .ql-fill {
+  fill: var(--ant-color-text);
+}
 
-  &.ql-container {
-    border-radius: 0 0 var(--ant-border-radius-lg) var(--ant-border-radius-lg);
-    color: var(--ant-color-text);
-    font-size: var(--ant-font-size);
+.ql-snow.ql-toolbar button .ql-stroke {
+  stroke: var(--ant-color-text);
+}
 
-    /* 3. Внутренний редактор */
-    .ql-editor {
-      padding: var(--ant-padding-md) var(--ant-padding-lg);
-      line-height: var(--ant-line-height);
+/* Состояния Hover и Active (Primary color) */
+.ql-snow.ql-toolbar button:hover,
+.ql-snow.ql-toolbar button:focus,
+.ql-snow.ql-toolbar button.ql-active,
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected {
+  color: var(--ant-color-primary) !important;
+}
 
-      &.ql-blank::before {
-        color: var(--ant-color-text-placeholder);
-        left: var(--ant-padding-lg);
-        font-style: normal;
-      }
+.ql-snow.ql-toolbar button:hover .ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill {
+  fill: var(--ant-color-primary) !important;
+}
 
-      blockquote {
-        border-left: 4px solid var(--ant-color-primary);
-        color: var(--ant-color-text-description);
-        background: var(--ant-color-fill-alter);
-        padding: var(--ant-padding-xs) var(--ant-padding-md);
-      }
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke {
+  stroke: var(--ant-color-primary) !important;
+}
 
-      code, .ql-code-block-container {
-        background-color: var(--ant-color-fill-secondary);
-        border-radius: var(--ant-border-radius-sm);
-        font-family: var(--ant-font-family-code);
-      }
-    }
-  }
+/* 4. Выпадающие списки (Pickers) */
+.ql-snow .ql-picker {
+  color: var(--ant-color-text);
+}
 
-  /* 4. Выпадающие списки (Pickers) */
-  .ql-picker {
-    color: var(--ant-color-text);
-    font-size: var(--ant-font-size-sm);
-    height: 24px;
+.ql-snow .ql-picker-options {
+  background-color: var(--ant-color-bg-elevated) !important;
+  border: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border) !important;
+  box-shadow: var(--ant-box-shadow-secondary);
+  border-radius: var(--ant-border-radius);
+}
 
-    .ql-picker-label {
-      border: 1px solid transparent !important;
-      border-radius: var(--ant-border-radius-sm);
-      padding-left: var(--ant-padding-xxs) !important;
-      transition: all var(--ant-motion-duration-mid);
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  border-color: var(--ant-color-primary-border) !important;
+}
 
-      &:hover { color: var(--ant-color-primary-hover) !important; }
-    }
+/* 5. Элементы редактора (цитаты, код, ссылки) */
+.ql-snow .ql-editor blockquote {
+  border-left: 4px solid var(--ant-color-primary);
+  color: var(--ant-color-text-secondary);
+}
 
-    .ql-picker-options {
-      background-color: var(--ant-color-bg-elevated);
-      border: none !important;
-      box-shadow: var(--ant-box-shadow-secondary);
-      border-radius: var(--ant-border-radius-lg);
-      padding: var(--ant-padding-xxs) !important;
-    }
+.ql-snow .ql-editor code,
+.ql-snow .ql-editor .ql-code-block-container {
+  background-color: var(--ant-color-fill-tertiary) !important;
+  color: var(--ant-color-text);
+  font-family: var(--ant-font-family-code) !important;
+  border-radius: var(--ant-border-radius-sm);
+}
 
-    .ql-picker-item {
-      border-radius: var(--ant-border-radius-sm);
-      padding: var(--ant-padding-xxs) var(--ant-padding-xs) !important;
-      transition: background var(--ant-motion-duration-mid);
+.ql-snow .ql-editor a {
+  color: var(--ant-color-link);
+}
 
-      &:hover {
-        background-color: var(--ant-color-bg-text-hover);
-        color: var(--ant-color-primary) !important;
-      }
-      &.ql-selected {
-        color: var(--ant-color-primary) !important;
-        background-color: var(--ant-color-primary-bg);
-      }
-    }
-  }
+.ql-snow .ql-editor a:hover {
+  color: var(--ant-color-link-hover);
+}
 
-  /* 5. Тултипы (Вставка ссылок/видео) */
-  .ql-tooltip {
-    background-color: var(--ant-color-bg-elevated);
-    border: none !important;
-    box-shadow: var(--ant-box-shadow);
-    border-radius: var(--ant-border-radius-lg);
-    padding: var(--ant-padding-sm) var(--ant-padding-md) !important;
-    color: var(--ant-color-text);
-    z-index: var(--ant-z-index-popup);
+/* 6. Тултипы (Tooltip / Link Edit) */
+.ql-snow .ql-tooltip {
+  background-color: var(--ant-color-bg-elevated) !important;
+  border: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border) !important;
+  color: var(--ant-color-text) !important;
+  box-shadow: var(--ant-box-shadow);
+  border-radius: var(--ant-border-radius);
+}
 
-    input[type=text] {
-      border: var(--ant-border-style) !important;
-      border-radius: var(--ant-border-radius-sm);
-      height: var(--ant-control-height-sm);
-      padding: 0 var(--ant-padding-xs);
-      background: var(--ant-color-bg-container);
-      color: var(--ant-color-text);
-      outline: none;
+.ql-snow .ql-tooltip input[type=text] {
+  background-color: var(--ant-color-bg-container);
+  border: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border);
+  color: var(--ant-color-text);
+  border-radius: var(--ant-border-radius-sm);
+}
 
-      &:focus {
-        border-color: var(--ant-color-primary) !important;
-        box-shadow: 0 0 0 2px var(--ant-color-primary-outline);
-      }
-    }
-    
-    a.ql-action::after {
-      border-right: 1px solid var(--ant-color-border-secondary);
-    }
-  }
+/* 7. Таблицы */
+.ql-editor td {
+  border: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border) !important;
 }
